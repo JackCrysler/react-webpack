@@ -14,6 +14,10 @@ function cancel(){
     console.log('不猜')
 }
 
+function Abc(){
+    return <h2>测试react element</h2>
+}
+
 
 export default class Test extends Component{
     constructor(props){
@@ -30,13 +34,18 @@ export default class Test extends Component{
     }
 
     render(){
+        
         return <div>
             <header>头部</header>
             <section>主体 <button onClick={this.showDialog}>对话框</button></section>
             <footer>页脚</footer>
             <Dialog ref="tips" title={title} onclose={close} oncertain={certain} oncancel={cancel}>
-                你猜我会放什么进来
+                猜我这里可以放什么？
             </Dialog>
         </div>
     }
 }
+
+
+
+

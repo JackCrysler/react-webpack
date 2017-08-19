@@ -1,6 +1,9 @@
 import Modal from './modal';
 import { Masker } from './mask';
 import React,{Component} from "react";
+import PropTypes from 'prop-types';
+
+
 export default class Dialog extends Component{
     constructor(props){
         super(props);
@@ -35,9 +38,24 @@ export default class Dialog extends Component{
         return (
             this.state.isVisible ?
             <Masker>
-                <Modal title={this.props.title} close={this.hide} callbacks={this.callbacks}>{this.props.children}</Modal>
+                <Modal title={this.props.title} close={this.hide} callbacks={this.callbacks}>
+                    {this.props.children}
+                </Modal>
             </Masker>:
             <div />
         )
     }
+}
+
+
+Dialog.propTypes = {//添加静态属性
+    onclose: PropTypes.func,
+    oncertaine: PropTypes.func,
+    oncancel: PropTypes.func,
+    title:PropTypes.string.isRequired,
+    children:PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.node,
+        PropTypes.element
+    ])
 }

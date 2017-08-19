@@ -34,5 +34,5 @@ module.exports = {
     resolve:{
         extensions:['.js','.jsx']
     },
-    devtool: 'inline-source-map'//友好错误提示
+    devtool: 'cheap-source-map'
 }
